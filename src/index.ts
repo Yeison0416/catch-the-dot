@@ -2,6 +2,8 @@ import 'reset-css';
 import './index.scss';
 
 function component() {
+    const xyeison: number = 2;
+    console.log(xyeison);
     const element = document.createElement('p');
     element.textContent = 'hello webpack';
 
