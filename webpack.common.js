@@ -4,16 +4,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const path = require('path');
+const glob = require('glob');
+
+const allPartials = glob.sync(path.join(__dirname, 'src/**/!(_)*.hbs')).map((file) => path.dirname(file));
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.ts',
     },
 
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
     },
 
     plugins: [
@@ -35,17 +41,18 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /[\\/]node_modules[\\/]/,
                 use: {
                     loader: 'babel-loader',
                 },
             },
             {
-                test: /\.html$/i,
-                loader: 'html-loader',
+                test: /\.hbs$/,
+                loader: 'handlebars-loader',
                 options: {
                     minimize: true,
+                    partialDirs: allPartials,
                 },
             },
         ],
