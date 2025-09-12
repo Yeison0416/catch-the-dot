@@ -1,9 +1,5 @@
-body {
-    background: black;
-    color: red;
-}
+@use '/src/catch-the-dot-game/catch-the-dot-game';
 
-h1 {
-    color: #fff;
-    font-size: 24px;
+body {
+	background: black;
 }
