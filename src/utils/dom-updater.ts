@@ -11,7 +11,11 @@ type DomUpdater = {
 export function DomUpdater(): DomUpdater {
     const randomNumber = () => Math.floor(Math.random() * 500);
 
-    const getDomElementById = (elementSelector: string): HTMLElement => document.getElementById(elementSelector)!;
+    const getDomElementById = (id: string): HTMLElement => {
+        const el = document.getElementById(id);
+        if (!el) throw new Error(`Element with id ${id} not found`);
+        return el;
+    };
 
     const setElementText = (element: HTMLElement, text: string) => (element.innerText = text);
 
@@ -26,7 +30,7 @@ export function DomUpdater(): DomUpdater {
     };
 
     const updateDot = (score: number) => {
-        if (score % 3) {
+        if (score % 3 === 0) {
             gameDot.style.backgroundColor = '#' + ((Math.random() * 0xffffff) << 0).toString(16);
         }
         setElementText(gameDot, score.toString());

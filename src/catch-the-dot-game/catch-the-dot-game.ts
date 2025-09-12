@@ -32,6 +32,7 @@ export function CatchTheDotGame(appRootNode: HTMLElement): CatchTheDotGame {
     const isNotGameOver = (intervalValue: number) => intervalValue >= 0;
 
     const nextState = (gameState: State) => ({
+        ...gameState,
         score: (gameState.score += 1),
         intrvl: gameState.score % 3 === 0 ? (gameState.intrvl -= 50) : gameState.intrvl,
     });
