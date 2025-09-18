@@ -34,12 +34,15 @@ Catch The Dot is a small game built with JavaScript, RxJS, and Handlebars where 
 # ▶️ Running Locally
 
 **Install dependencies**
-npm install
+
+`npm install`
 
 **Run the dev server**
-npm start
+
+`npm start`
 
 # 📸 Demo
+![CatchTheDotGameHandBrake-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/58db0aa7-e667-4c0f-81c2-2b062d5c4a5b)
 
 
 
