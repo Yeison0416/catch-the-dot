@@ -21,7 +21,7 @@ Catch The Dot is a small game built with JavaScript, RxJS, and Handlebars where 
 4. If the countdown reaches 0, the game ends.
 
 # 🛠 Tech Stack
-* JavaScript (ES Modules)
+* TypeScript (ES Modules)
 
 * RxJS – reactive streams (fromEvent, scan, switchMap, tap, takeWhile)
 
